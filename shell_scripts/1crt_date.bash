@@ -3,3 +3,4 @@
 #!/bin/bash
 d=`date +%d-%m-%Y`
 echo "Current Dates is:$d"
+
