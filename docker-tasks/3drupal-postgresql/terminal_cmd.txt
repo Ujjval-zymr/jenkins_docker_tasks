@@ -1,0 +1,2 @@
+To run yml compose file in terminal after creating docker-compose.yml file.
+docker-compose  -f docker-compose.yml up

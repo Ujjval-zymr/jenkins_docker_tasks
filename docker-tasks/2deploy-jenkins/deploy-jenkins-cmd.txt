@@ -1,0 +1,4 @@
+To deploy jenkins using docker run cmd 
+docker run -dp 8080:8080 --name=jenkins-master jenkins/jenkins
+#to check image is created or not
+docker images
