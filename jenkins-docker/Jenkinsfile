@@ -8,12 +8,14 @@ pipeline{
 
 	stages {
           
-        /*stage('gitclone') {
+        stage('gitclone') {
 
 			steps {
 				//git 'https://github.com/shazforiot/nodeapp_test.git'
+				git 'https://github.com/Ujjval-zymr/jenkins_docker_tasks.git'
+				//git([url: 'http://gitlab.zymrinc.com/ZDevOps/bash-scripts.git', branch: "${params.branch}", credentialsId: 'gitlab'])
 			}
-		}*/
+		}
 
 		stage('Build') {
 
@@ -21,7 +23,7 @@ pipeline{
 				//sh 'docker build -t thetips4you/nodeapp_test:latest .'
                 //dockerhub id/image name
                 //sh ' /home/ujjval.d@ah.zymrinc.com/ajeet_tasks/jenkins-docker/Dockerfile'
-                sh 'docker build -f /home/ujjval.d@ah.zymrinc.com/ajeet_tasks/jenkins-docker/Dockerfile -t ujjvalzymr121/mynginx:latest .'
+                sh 'docker build -t ujjvalzymr121/mynginx:latest .'
 			}
 		}
 
