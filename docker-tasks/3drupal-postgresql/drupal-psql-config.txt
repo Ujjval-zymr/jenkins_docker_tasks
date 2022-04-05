@@ -1,7 +1,0 @@
-To configure drupal with psql db use this
-Database name : productdb
-Dbuser_name : admin
-Dbpassword : admin123
----------------------------In Advance Option---------------------
-use service name as "postgresql_db" insted of "localhost"
-port : 5432

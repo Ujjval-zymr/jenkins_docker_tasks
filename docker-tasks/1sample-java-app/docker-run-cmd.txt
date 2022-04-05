@@ -1,2 +1,0 @@
-To deploy java app using docker run cmd after creating docker file.
-docker run -dp 3000:8080 my-java-app:1.0 or image_id 
