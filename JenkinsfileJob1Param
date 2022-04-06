@@ -58,6 +58,11 @@ pipeline{
 		always {
 			sh 'docker logout'
 		}
+
+		success {
+            echo 'Run Parameterized-job2!'
+            build job: 'parameterized-job2', parameters: [string(name: 'FROM_BUILD', value: "${BUILD_NUMBER}")]
+        }
 	}
 
 }
