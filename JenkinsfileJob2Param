@@ -5,14 +5,14 @@ pipeline{
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
-
+	
 	parameters {
         choice(name: "branch", choices: ["master", "ujjval"], description: "Select branch to build")
     }
-	
+
 	stages {
-          
-        stage('gitclone') {
+		
+		stage('gitclone') {
 
 			steps {
 				echo "Pulling changes from branch ${params.branch}"
@@ -36,20 +36,12 @@ pipeline{
 				sh 'docker pull ujjvalzymr121/mynginx:latest'
 			}
 		}
-
-		stage('Build Docker Image') {
-
+//-------------------------------------------------------------
+        stage('Publish it on local machine') {
+        
 			steps {
-				//build docker image from clone data
-                sh 'docker build -t ujjvalzymr121/mynginx:latest .'
-			}
-		}
-
-		stage('Push image to hub') {
-
-			steps {
-				//push from ujjval docker id
-                sh 'docker push ujjvalzymr121/mynginx:latest'
+				//run pull image from docker_hub on port : 9090 
+				sh 'docker run --name nginxpulled -dp 9090:80 ujjvalzymr121/mynginx:latest'
 			}
 		}
 	}
