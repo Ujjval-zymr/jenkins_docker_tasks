@@ -51,6 +51,7 @@ pipeline{
 	post {
 		always {
 			sh 'docker logout'
+			emailext attachLog: true, body: 'This job run successfully!!!', subject: 'Jenkins Param Job Status ~ Success', to: 'ujjval.darji@zymr.com'
 		}
 	}
 }
