@@ -8,7 +8,8 @@ pipeline{
 
 	parameters {
         choice(name: "branch", choices: ["master", "ujjval"], description: "Select branch to build")
-    }
+		string(name: 'FROM_BUILD', defaultValues: '', description: 'Run Parameterized-job2')
+	}
 
 	stages {
 		
@@ -41,6 +42,7 @@ pipeline{
         
 			steps {
 				//run pull image from docker_hub on port : 9090 
+				echo "Running from source ${params.FROM_BUILD}"
 				sh 'docker run --name nginxpulled -dp 9090:80 ujjvalzymr121/mynginx:latest'
 			}
 		}
@@ -50,10 +52,5 @@ pipeline{
 		always {
 			sh 'docker logout'
 		}
-		
-		success {
-            echo 'Run Parameterized-job1!'
-            build job: 'parameterized-job1', parameters: [string(name: 'MY_PARAM', value: 'value from Build pipeline')]
-        }
 	}
 }
