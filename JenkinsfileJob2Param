@@ -13,14 +13,14 @@ pipeline{
 
 	stages {
 		
-		stage('gitclone') {
+	/*stage('gitclone') {
 
-			steps {
-				echo "Pulling changes from branch ${params.branch}"
-				git url: 'https://github.com/Ujjval-zymr/jenkins_docker_tasks.git' , branch : "${params.branch}"
-				//github access key : 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
-			}
+		steps {
+			echo "Pulling changes from branch ${params.branch}"
+			git url: 'https://github.com/Ujjval-zymr/jenkins_docker_tasks.git' , branch : "${params.branch}"
+			//github access key : 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
 		}
+	}*/
 
         stage('Login to docker hub') {
 
