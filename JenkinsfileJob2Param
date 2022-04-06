@@ -5,7 +5,7 @@ pipeline{
 	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
-	
+
 	parameters {
         choice(name: "branch", choices: ["master", "ujjval"], description: "Select branch to build")
     }
@@ -50,6 +50,10 @@ pipeline{
 		always {
 			sh 'docker logout'
 		}
+		
+		success {
+            echo 'Run Parameterized-job1!'
+            build job: 'parameterized-job1', parameters: [string(name: 'MY_PARAM', value: 'value from Build pipeline')]
+        }
 	}
-
 }
