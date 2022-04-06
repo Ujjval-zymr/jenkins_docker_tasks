@@ -8,7 +8,7 @@ pipeline{
 
 	parameters {
         choice(name: "branch", choices: ["master", "ujjval"], description: "Select branch to build")
-		string(name: 'FROM_BUILD', defaultValues: '', description: 'Run Parameterized-job2')
+		string(name: 'FROM_BUILD', defaultValue: '', description: 'Run Parameterized-job2')
 	}
 
 	stages {
