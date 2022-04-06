@@ -62,9 +62,9 @@ pipeline{
             echo 'Run Parameterized-job2!'
             build job: 'parameterized-job2', parameters: [string(name: 'FROM_BUILD', value: "${BUILD_NUMBER}")]
         }
-		unsuccessful {
-			emailext attachLog: true, body: 'This job is fail!!!', subject: 'Jenkins Param Job Status ~ Fail', to: 'ujjval.darji@zymr.com'
-		}
+		/*unsuccessful {
+			//emailext attachLog: true, body: 'This job is fail!!!', subject: 'Jenkins Param Job Status ~ Fail', to: 'ujjval.darji@zymr.com'
+		}*/
 	}
 
 }
